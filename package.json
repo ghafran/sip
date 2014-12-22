@@ -1,0 +1,53 @@
+{
+    "name": "sip",
+    "version": "1.0.0",
+    "description": "sip server",
+    "main": "index.js",
+    "scripts": {
+        "test": "gulp test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ghafran/sip.git"
+    },
+    "keywords": [
+        "sip",
+        "server",
+        "voip",
+        "video",
+        "call",
+        "meeting"
+    ],
+    "author": "ghafran",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ghafran/sip/issues"
+    },
+    "homepage": "https://github.com/ghafran/sip",
+    "dependencies": {
+
+    },
+    "devDependencies": {
+        "chai": "^1.10.0",
+        "chalk": "^0.5.1",
+        "chance": "^0.7.0",
+        "commander": "^2.5.0",
+        "gulp": "^3.8.10",
+        "gulp-cache": "^0.2.4",
+        "gulp-filter": "^1.0.2",
+        "gulp-flatten": "0.0.4",
+        "gulp-if": "^1.2.5",
+        "gulp-istanbul": "^0.5.0",
+        "gulp-jshint": "^1.9.0",
+        "gulp-load-plugins": "^0.7.1",
+        "gulp-mocha": "^2.0.0",
+        "gulp-shell": "^0.2.11",
+        "gulp-watch": "^3.0.0",
+        "hippie": "^0.3.0",
+        "jshint-stylish": "^1.0.0",
+        "mocha": "^2.0.1",
+        "qs": "^2.3.3",
+        "run-sequence": "^1.0.2",
+        "supertest": "^0.15.0"
+    }
+}
