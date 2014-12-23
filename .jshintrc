@@ -22,6 +22,7 @@
         "beforeEach": true,
         "afterEach": true,
         "describe": true,
-        "it": true
+        "it": true,
+        "unescape": true
     }
 }
