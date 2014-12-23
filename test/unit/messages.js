@@ -1,4 +1,5 @@
-var xpect = require('chai').expect,
+var fs = require('fs'),
+    xpect = require('chai').expect,
     chance = require('chance').Chance();
 
 var message = require('../../lib/message');
@@ -68,14 +69,22 @@ describe('message', function () {
 
     describe('parseHeaders', function () {
 
-        // it('valid', function () {
-        //
-        //     var startLine = 'SIP/2.0 200 OK';
-        //     var status = message.parseStatusLine(startLine);
-        //     xpect(status).to.exist();
-        //     xpect(status.version).to.equal('2.0');
-        //     xpect(status.status).to.equal('200');
-        //     xpect(status.reason).to.equal('OK');
-        // });
+        it('valid', function (done) {
+
+            fs.readFile(__dirname + '/assets/request_invite.txt', {
+                encoding: 'utf8'
+            }, function (err, request) {
+                if (err) {
+                    done(err);
+                } else {
+                    var headers = message.parseHeaders(request);
+                    xpect(headers).to.exist();
+                    xpect(headers['to']).to.equal('user2 <sip:user2@server2.com>');
+                    xpect(headers['from']).to.equal('user1 <sip:user1@server1.com>;tag=1928301774');
+                    xpect(headers['call-id']).to.equal('a84b4c76e66710@pc33.server1.com');
+                    done();
+                }
+            });
+        });
     });
 });
