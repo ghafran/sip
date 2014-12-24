@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/ghafran/sip",
   "dependencies": {
+    "debug": "^2.1.0",
     "lodash": "^2.4.1"
   },
   "devDependencies": {

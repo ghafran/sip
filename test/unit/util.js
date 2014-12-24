@@ -2,7 +2,7 @@ var fs = require('fs'),
     xpect = require('chai').expect,
     chance = require('chance').Chance();
 
-var Util = require('../../lib/Util');
+var Util = require('../../lib/util');
 
 describe('Util', function () {
 
