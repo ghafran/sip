@@ -18,9 +18,9 @@ describe('Message', function () {
                 } else {
                     var message = new Message(request);
                     xpect(message).to.exist();
-                    xpect(message.headers).to.exist();
                     xpect(message.isRequest).to.equal(true);
-                    xpect(message.method).to.equal('INVITE');
+                    xpect(message.headers).to.exist();
+                    xpect(message.request.method).to.equal('INVITE');
                     xpect(message.headers['call-id']).to.equal('a84b4c76e66710@pc33.server1.com');
                     done();
                 }

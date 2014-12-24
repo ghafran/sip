@@ -6,8 +6,8 @@ var db = {};
 app.register(function (req, res) {
 
     db[req.user.address] = {
+        domain: req.register.domain,
         address: req.user.address,
-        domain: req.user.domain,
         contact: req.user.contact
     };
 
