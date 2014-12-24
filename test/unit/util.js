@@ -87,4 +87,17 @@ describe('Util', function () {
             });
         });
     });
+
+    describe('parseUri', function () {
+
+        it('valid', function (done) {
+
+            var uri = Util.parseUri('sip:user1@server1.com');
+            xpect(uri).to.exist();
+            xpect(uri.schema).to.equal('sip');
+            xpect(uri.user).to.equal('user1');
+            xpect(uri.host).to.equal('server1.com');
+            done();
+        });
+    });
 });
