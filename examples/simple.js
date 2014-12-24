@@ -1,14 +1,17 @@
 var sip = require('../lib/sip');
 var app = sip();
 
-app.register(function(req){
+var db = {};
 
-    // console.log(req);
-});
+app.register(function (req, res) {
 
-app.invite(function(req){
+    db[req.user.address] = {
+        address: req.user.address,
+        domain: req.user.domain,
+        contact: req.user.contact
+    };
 
-    // console.log(req);
+    res.send(200);
 });
 
 app.listen();
