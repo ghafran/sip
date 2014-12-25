@@ -15,6 +15,7 @@ describe('Uri', function () {
             xpect(uri.schema()).to.equal('sip');
             xpect(uri.user()).to.equal('user1');
             xpect(uri.host()).to.equal('domain.com');
+            xpect(uri.address()).to.equal('user1@domain.com');
             done();
         });
         
@@ -27,6 +28,7 @@ describe('Uri', function () {
             xpect(uri.password()).to.equal('pass1');
             xpect(uri.host()).to.equal('domain.com');
             xpect(uri.port()).to.equal(5060);
+            xpect(uri.address()).to.equal('user1@domain.com');
             done();
         });
     });
