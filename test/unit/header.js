@@ -33,7 +33,7 @@ describe('Header', function () {
             });
         });
         
-        it('uri', function (done) {
+        it('aof', function (done) {
 
             fs.readFile(__dirname + '/assets/request_invite.txt', {
                 encoding: 'utf8'
@@ -43,9 +43,10 @@ describe('Header', function () {
                 } else {
                     var header1 = new Header(request, 'to');
                     xpect(header1).to.exist();
-                    xpect(header1.uri()).to.exist();
-                    xpect(header1.uri().user()).to.equal('user2');
-                    xpect(header1.uri().host()).to.equal('server2.com');
+                    xpect(header1.value()).to.equal('user2 <sip:user2@server2.com>');
+                    xpect(header1.aof()).to.exist();
+                    xpect(header1.aof().user()).to.equal('user2');
+                    xpect(header1.aof().host()).to.equal('server2.com');
                     done();
                 }
             });
