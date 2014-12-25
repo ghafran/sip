@@ -87,7 +87,19 @@ describe('Util', function () {
             });
         });
     });
+    
+    describe('parseHeaderValueAof', function () {
 
+        it('valid', function (done) {
+
+            var aof = Util.parseHeaderValueAof('user2 <sip:user2@server2.com>');
+            xpect(aof).to.exist();
+            xpect(aof.name).to.equal('user2');
+            xpect(aof.uri).to.equal('user2@server2.com');
+            done();
+        });
+    });
+    
     describe('parseUri', function () {
 
         it('valid', function (done) {
@@ -97,6 +109,16 @@ describe('Util', function () {
             xpect(uri.schema).to.equal('sip');
             xpect(uri.user).to.equal('user1');
             xpect(uri.host).to.equal('server1.com');
+            done();
+        });
+    });
+    
+    describe('getStatusText', function () {
+
+        it('valid', function (done) {
+
+            var text = Util.getStatusText(200);
+            xpect(text).to.equal('OK');
             done();
         });
     });
