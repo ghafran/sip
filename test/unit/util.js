@@ -87,10 +87,23 @@ describe('Util', function () {
             });
         });
     });
-    
-    describe('parseHeaderValueAof', function () {
+
+    describe('parseParams', function () {
 
         it('valid', function (done) {
+
+            var params = Util.parseParams('SIP/2.0/TCP 127.0.0.1:59108;alias;branch=z9hG4bK.3Hhn~YCyt;rport');
+            xpect(params).to.exist();
+            xpect(params['branch']).to.equal('z9hG4bK.3Hhn~YCyt');
+            xpect(params['alias']).to.equal('');
+            xpect(params['rport']).to.equal('');
+            done();
+        });
+    });
+
+    describe('parseHeaderValueAof', function () {
+
+        it('<>', function (done) {
 
             var aof = Util.parseHeaderValueAof('user2 <sip:user2@server2.com>');
             xpect(aof).to.exist();
@@ -98,8 +111,16 @@ describe('Util', function () {
             xpect(aof.uri).to.equal('sip:user2@server2.com');
             done();
         });
+
+        it('no <>', function (done) {
+
+            var aof = Util.parseHeaderValueAof('sip:user2@server2.com');
+            xpect(aof).to.exist();
+            xpect(aof.uri).to.equal('sip:user2@server2.com');
+            done();
+        });
     });
-    
+
     describe('parseUri', function () {
 
         it('valid', function (done) {
@@ -112,7 +133,7 @@ describe('Util', function () {
             done();
         });
     });
-    
+
     describe('getStatusText', function () {
 
         it('valid', function (done) {

@@ -1,0 +1,12 @@
+REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:59108;alias;branch=z9hG4bK.3Hhn~YCyt;rport
+From: <sip:user1@localhost>;tag=nOkcULRuh
+To: sip:user1@localhost
+CSeq: 20 REGISTER
+Call-ID: -aT6cgP~c~
+Max-Forwards: 70
+Supported: outbound
+Contact: <sip:user1@127.0.0.1:59108;transport=tcp>;+sip.instance="<urn:uuid:c085deef-76bd-4829-8eec-3f2cc704b81b>"
+Expires: 600
+User-Agent: (belle-sip/1.3.1)
+Content-Length: 0
