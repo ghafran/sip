@@ -95,7 +95,7 @@ describe('Util', function () {
             var aof = Util.parseHeaderValueAof('user2 <sip:user2@server2.com>');
             xpect(aof).to.exist();
             xpect(aof.name).to.equal('user2');
-            xpect(aof.uri).to.equal('user2@server2.com');
+            xpect(aof.uri).to.equal('sip:user2@server2.com');
             done();
         });
     });
