@@ -86,6 +86,19 @@ describe('Util', function () {
                 }
             });
         });
+
+        it('should not contain returns', function (done) {
+
+            var headers = Util.parseHeaders('From: <sip:test@localhost>;tag=kFUkwBLr5\r\n' +
+                'To: sip:test@localhost\r\n' +
+                'CSeq: 20 REGISTER\r\n');
+            xpect(headers).to.exist();
+            xpect(headers['to']).to.not.have.string('\r');
+            xpect(headers['to']).to.not.have.string('\n');
+            xpect(headers['from']).to.not.have.string('\r');
+            xpect(headers['from']).to.not.have.string('\n');
+            done();
+        });
     });
 
     describe('parseParams', function () {
