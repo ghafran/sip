@@ -10,7 +10,7 @@ app.register(function (req, res) {
         address: req.user.address,
         contact: req.user.contact
     };
-
+    
     res.send(200);
 });
 
