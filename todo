@@ -1,3 +1,7 @@
-- register response
-- register authentication
+- register
+    - register authentication
+    - send trying messages
+
+
 - handle multi-line headers
+- cache object parsers
