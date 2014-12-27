@@ -1,7 +1,7 @@
 - register
     - register authentication
     - send trying messages
-
-
+- chained functions for routes
+- multi-domain support
 - handle multi-line headers
 - cache object parsers
