@@ -9,11 +9,11 @@ app.register(function (req, res) {
     var username = req.auth.username;
 
     // get password from database for username
-    var password = 'password';
+    var password = 'test';
 
     // validate password
     var valid = req.auth.validate({
-        password: 'password'
+        password: password
     });
 
     if (valid) {
