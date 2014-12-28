@@ -6,6 +6,19 @@ var Util = require('../../lib/util');
 
 describe('Util', function () {
 
+
+    describe('trimQuotes', function () {
+
+        it('validate', function (done) {
+
+            xpect(Util.trimQuotes()).to.not.exist();
+            xpect(Util.trimQuotes('"test"')).to.equal('test');
+            xpect(Util.trimQuotes('"test')).to.equal('"test');
+            xpect(Util.trimQuotes('test"')).to.equal('test"');
+            done();
+        });
+    });
+
     describe('isRequestLine', function () {
 
         it('true', function () {
@@ -110,6 +123,29 @@ describe('Util', function () {
             xpect(params['branch']).to.equal('z9hG4bK.3Hhn~YCyt');
             xpect(params['alias']).to.equal('');
             xpect(params['rport']).to.equal('');
+            done();
+        });
+    });
+
+    describe('parseAuthHeader', function () {
+
+        it('valid', function (done) {
+
+            var params = Util.parseAuthHeader('Authorization: Digest username="bob",' +
+            'realm="biloxi.com",' +
+            'nonce="dcd98b7102dd2f0e8b11d0f600bfb0c093",' +
+            'uri="sip:bob@biloxi.com",' +
+            'qop=auth,' +
+            'nc=00000001,' +
+            'cnonce="0a4f113b",' +
+            'response="6629fae49393a05397450978507c4ef1",' +
+            'opaque="5ccc069c403ebaf9f0171e9517f40e41"');
+            xpect(params).to.exist();
+            xpect(params['scheme']).to.equal('Digest');
+            xpect(params['username']).to.equal('bob');
+            xpect(params['realm']).to.equal('biloxi.com');
+            xpect(params['nonce']).to.equal('dcd98b7102dd2f0e8b11d0f600bfb0c093');
+            xpect(params['opaque']).to.equal('5ccc069c403ebaf9f0171e9517f40e41');
             done();
         });
     });
