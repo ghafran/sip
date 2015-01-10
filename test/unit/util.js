@@ -131,7 +131,7 @@ describe('Util', function () {
 
         it('valid', function (done) {
 
-            var params = Util.parseAuthHeader('Authorization: Digest username="bob",' +
+            var params = Util.parseAuthHeader('Digest username="bob",' +
             'realm="biloxi.com",' +
             'nonce="dcd98b7102dd2f0e8b11d0f600bfb0c093",' +
             'uri="sip:bob@biloxi.com",' +
@@ -146,6 +146,20 @@ describe('Util', function () {
             xpect(params['realm']).to.equal('biloxi.com');
             xpect(params['nonce']).to.equal('dcd98b7102dd2f0e8b11d0f600bfb0c093');
             xpect(params['opaque']).to.equal('5ccc069c403ebaf9f0171e9517f40e41');
+            done();
+        });
+
+        it('valid 2', function (done) {
+
+            var params = Util.parseAuthHeader('Digest username="test",realm="localhost",' +
+                'nonce="d2d095fb3b414986afb7eda63d3cb087",uri="sip:localhost;transport=UDP",' +
+                'response="7acf114c4de55e201e080fa57ea5e198",cnonce="b874b588e0d49adbc62e8bbce5f1852c",' +
+                'nc=00000001,qop=auth-int,algorithm=MD5');
+            xpect(params).to.exist();
+            xpect(params['scheme']).to.equal('Digest');
+            xpect(params['username']).to.equal('test');
+            xpect(params['realm']).to.equal('localhost');
+            xpect(params['nonce']).to.equal('d2d095fb3b414986afb7eda63d3cb087');
             done();
         });
     });

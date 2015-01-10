@@ -1,0 +1,14 @@
+REGISTER sip:localhost;transport=TCP SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:50047;branch=z9hG4bK-d8754z-043ce86929f3b604-1---d8754z-;rport;transport=TCP
+Max-Forwards: 70
+Contact: <sip:test@127.0.0.1:50047;rinstance=31cf9e849a486bf5;transport=TCP>
+To: <sip:test@localhost;transport=TCP>
+From: <sip:test@localhost;transport=TCP>;tag=89ea2916
+Call-ID: NGFiMTUwNzBjYjdiMTc3MTM0MTFlMTFjYTA2MmEwY2I.
+CSeq: 1 REGISTER
+Expires: 70
+Allow: INVITE, ACK, CANCEL, BYE, NOTIFY, REFER, MESSAGE, OPTIONS, INFO, SUBSCRIBE
+Supported: replaces, norefersub, extended-refer, timer, X-cisco-serviceuri
+User-Agent: Z 3.3.21933 r21903
+Allow-Events: presence, kpml
+Content-Length: 0
